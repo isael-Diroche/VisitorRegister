@@ -19,8 +19,9 @@ namespace ITLA_Visitors
 
         forms.Form_user_admin frm = new forms.Form_user_admin();
 
-        public static string usuario_nombre;
-        public static string area;
+        public static string user_nombre;
+        public static string user_apellido;
+        public static string user_tipo_usuario;
 
         public void p_logeo()
         {
@@ -33,18 +34,19 @@ namespace ITLA_Visitors
             if(dt.Rows.Count > 0)
             {
                 MessageBox.Show("Bienvenido " + dt.Rows[0][1].ToString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                usuario_nombre = dt.Rows[0][1].ToString();
-                area = dt.Rows[0][0].ToString();
+                user_nombre = dt.Rows[0][1].ToString();
+                user_apellido = dt.Rows[0][2].ToString();
+                user_tipo_usuario = dt.Rows[0][3].ToString();
 
-                frm.ShowDialog();
+                frm.Show();
+                this.Hide();
 
                 Form_main login = new Form_main();
-                login.ShowDialog();
+                //login.ShowDialog();
 
                 if (login.DialogResult == DialogResult.OK)
                 {
                     Application.Run(new forms.Form_user_admin());
-
                 }
 
                 txtUsuario.Clear();
@@ -54,11 +56,9 @@ namespace ITLA_Visitors
             else
             {
                 MessageBox.Show("Usuario o Contraseña Incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
 
         }
-
 
         public Form_main()
         {

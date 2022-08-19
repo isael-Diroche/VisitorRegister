@@ -13,9 +13,9 @@ namespace Capa_Negocio.Clases
     {
         Datos_login objd = new Datos_login();
 
-        public DataTable N_login(Entidad_login obje)
+        public DataTable N_login(Entidad_login obj)
         {
-            return objd.Datos_Login(obje);
+            return objd.Datos_Login(obj);
         }
     }
 }

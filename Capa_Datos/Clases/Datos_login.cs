@@ -14,12 +14,13 @@ namespace Capa_Datos.Clases
     {
         MySqlConnection conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString);
         
-        public DataTable Datos_Login(Entidad_login obje)
+        public DataTable Datos_Login(Entidad_login obj)
         {
-            MySqlCommand cmd = new MySqlCommand("SP_procedure", conexion);
+            MySqlCommand cmd = new MySqlCommand("SP_logueo", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("usuario", obje);
+            cmd.Parameters.AddWithValue("dt_USUARIO", obj.usuario);
+            cmd.Parameters.AddWithValue("dt_CONTRASENA", obj.contrasena);
 
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();

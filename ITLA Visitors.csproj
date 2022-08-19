@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsImagen.cs" />
     <Compile Include="Form_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +182,24 @@
       <Project>{8805cf8d-f1eb-443c-8352-928c467aa70a}</Project>
       <Name>Capa_Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUTTON1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMAGE1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_field.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iOS Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Outline1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
