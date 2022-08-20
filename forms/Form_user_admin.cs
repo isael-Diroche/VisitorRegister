@@ -41,6 +41,7 @@ namespace ITLA_Visitors.forms
         private void btnCloseTab_Click(object sender, EventArgs e)
         {
             this.Close();
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -50,6 +51,21 @@ namespace ITLA_Visitors.forms
 
         private void Form_user_admin_Load(object sender, EventArgs e)
         {
+            //Saltamos al frente al panel principal
+            this.panelSeleccion.BringToFront();
+
+            //Llenar el ComboBox de las carreras
+            DataTable tCarrera= tblUsuario.Mostrar_Carrera();
+            cbxCarrera.DataSource = tCarrera;
+            cbxCarrera.DisplayMember = "descripcion";
+            cbxCarrera.ValueMember = "descripcion";
+
+            //Llenar el ComboBox de las edificios
+            DataTable tEdificio = tblUsuario.Mostrar_Edificio();
+            cbxEdificio.DataSource = tEdificio;
+            cbxEdificio.DisplayMember = "descripcion";
+            cbxEdificio.ValueMember = "descripcion";
+
 
             this.FillGridView();
             
@@ -74,7 +90,7 @@ namespace ITLA_Visitors.forms
             dgvVisitas.DataSource = tblUsuario.Mostrar_Visitas();
 
             DataGridViewImageColumn colum = (DataGridViewImageColumn)dgvVisitas.Columns[9];
-            colum.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            colum.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvVisitas.Columns[0].Visible = false;
             //dgvVisitas.Columns[6].Visible = false;
             //dgvVisitas.Columns[7].Visible = false;
@@ -122,16 +138,17 @@ namespace ITLA_Visitors.forms
 
             try
             {
+                //Cargar los getters
                 objevisitas.nombre = txtNombre.Text;
                 objevisitas.apellido = txtApellido.Text;
-                objevisitas.carrera = txtCarrera.Text;
+                objevisitas.carrera = cbxCarrera.Text;
                 objevisitas.correo = txtCorreo.Text;
-                objevisitas.edificio = txtEdificio.Text;
+                objevisitas.edificio = cbxEdificio.Text;
                 objevisitas.hora_entrada = dtEntrada.Text;
                 objevisitas.hora_salida = dtSalida.Text;
                 objevisitas.motivo_visita = txtMotivo.Text;
                 objevisitas.foto_visita = clsImagen.ImageToByte(pbFotoVisita.Image);
-                objevisitas.se_dirige = txtAula.Text;
+                objevisitas.se_dirige = cbxAula.Text;
 
                 Tabla = objnvisitas.Insertar_Visitas(objevisitas);
 
@@ -141,23 +158,14 @@ namespace ITLA_Visitors.forms
             {
                 MessageBox.Show("Ocurrio un error al Insertar los Registros " + ex, "Error insertando registros");
             }
-            finally
-            {
-                string mensaje = clsImagen.ImageToByte(pbFotoVisita.Image).ToString();
-                MessageBox.Show(mensaje);
-            }
-            
-            
-
-            //Entidad_login objeuser = new Entidad_login();
-            //Negocio_Login objnuser = new Negocio_Login();
-            //Cargar los getters
-            
-
-
         }
 
-        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            this.FillGridView();
+        }
+
+        private void pbFotoVisita_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Title = "Selecione una imagen";
@@ -168,6 +176,46 @@ namespace ITLA_Visitors.forms
             {
                 pbFotoVisita.ImageLocation = dialog.FileName;
             }
+        }
+
+        private void cbxEdificio_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Entidad_edificios objeuser = new Entidad_edificios();
+            Negocio_visitas objnuser = new Negocio_visitas();
+
+            //MessageBox.Show(cbxEdificio.Text, "Aqui estan los valores");
+            try
+            {
+                DataTable tAula = new DataTable();
+                objeuser.Id = 1;
+                objeuser.descripcion = cbxEdificio.Text;
+
+                tAula = objnuser.Mostrar_Aula_Edificio(objeuser);
+
+                //Llenar el ComboBox de las Aulas
+                //DataTable tAula= tblUsuario.Mostrar_Aula_Edificio(cbxEdificio.Text);
+                cbxAula.DataSource = tAula;
+                cbxAula.DisplayMember = "descripcion";
+                cbxAula.ValueMember = "descripcion";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                //.Show(ex.Message, "Ocurrio un error Cargando El Area o Salon");
+                
+            }
+
+            //MessageBox.Show("Se cambio el valor seleccionado");
+            //----------------------------------------------------------------------Cargar el ComboBox de Aulas
+        }
+
+        private void txtBuscarVisita_TextChanged(object sender, EventArgs e)
+        {
+            String Valor = txtBuscarVisita.Text;
+
+            dgvVisitas.DataSource = tblUsuario.Buscar_visita(Valor);
+            
+
         }
 
 

@@ -30,6 +30,8 @@ namespace ITLA_Visitors.forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_user_admin));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@ namespace ITLA_Visitors.forms
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAgregarImagen = new System.Windows.Forms.Button();
-            this.btnRemoverImagen = new System.Windows.Forms.Button();
             this.pbFotoVisita = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -58,10 +58,10 @@ namespace ITLA_Visitors.forms
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.dtEntrada = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtEdificio = new System.Windows.Forms.ComboBox();
-            this.txtAula = new System.Windows.Forms.ComboBox();
+            this.cbxEdificio = new System.Windows.Forms.ComboBox();
+            this.cbxAula = new System.Windows.Forms.ComboBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtCarrera = new System.Windows.Forms.ComboBox();
+            this.cbxCarrera = new System.Windows.Forms.ComboBox();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@ namespace ITLA_Visitors.forms
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvVisitas = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -89,6 +89,14 @@ namespace ITLA_Visitors.forms
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnEdificios = new System.Windows.Forms.Button();
             this.btnVisitas = new System.Windows.Forms.Button();
+            this.panelUsuario = new System.Windows.Forms.Panel();
+            this.panelEdificio = new System.Windows.Forms.Panel();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.panelVisitas.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -101,6 +109,10 @@ namespace ITLA_Visitors.forms
             this.panel4.SuspendLayout();
             this.panelSeleccion.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelUsuario.SuspendLayout();
+            this.panelEdificio.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -176,8 +188,10 @@ namespace ITLA_Visitors.forms
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             // 
             // tabPage1
             // 
@@ -200,10 +214,10 @@ namespace ITLA_Visitors.forms
             this.tabPage1.Controls.Add(this.txtNombre);
             this.tabPage1.Controls.Add(this.dtEntrada);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.txtEdificio);
-            this.tabPage1.Controls.Add(this.txtAula);
+            this.tabPage1.Controls.Add(this.cbxEdificio);
+            this.tabPage1.Controls.Add(this.cbxAula);
             this.tabPage1.Controls.Add(this.txtApellido);
-            this.tabPage1.Controls.Add(this.txtCarrera);
+            this.tabPage1.Controls.Add(this.cbxCarrera);
             this.tabPage1.Controls.Add(this.txtMotivo);
             this.tabPage1.Controls.Add(this.txtCorreo);
             this.tabPage1.Controls.Add(this.label4);
@@ -220,44 +234,42 @@ namespace ITLA_Visitors.forms
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.btnRegistrar, "btnRegistrar");
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Image = global::ITLA_Visitors.Properties.Resources.BUTTON3;
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            this.button1.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.button1, "button1");
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::ITLA_Visitors.Properties.Resources.BUTTON4;
             this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnAgregarImagen);
-            this.panel2.Controls.Add(this.btnRemoverImagen);
-            this.panel2.Controls.Add(this.pbFotoVisita);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            this.panel2.BackgroundImage = global::ITLA_Visitors.Properties.Resources.pic_chart;
             resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.pbFotoVisita);
             this.panel2.Name = "panel2";
-            // 
-            // btnAgregarImagen
-            // 
-            resources.ApplyResources(this.btnAgregarImagen, "btnAgregarImagen");
-            this.btnAgregarImagen.Name = "btnAgregarImagen";
-            this.btnAgregarImagen.UseVisualStyleBackColor = true;
-            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
-            // 
-            // btnRemoverImagen
-            // 
-            resources.ApplyResources(this.btnRemoverImagen, "btnRemoverImagen");
-            this.btnRemoverImagen.Name = "btnRemoverImagen";
-            this.btnRemoverImagen.UseVisualStyleBackColor = true;
             // 
             // pbFotoVisita
             // 
             resources.ApplyResources(this.pbFotoVisita, "pbFotoVisita");
-            this.pbFotoVisita.InitialImage = global::ITLA_Visitors.Properties.Resources.IMAGE1;
+            this.pbFotoVisita.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbFotoVisita.Image = global::ITLA_Visitors.Properties.Resources.image_42;
+            this.pbFotoVisita.InitialImage = global::ITLA_Visitors.Properties.Resources.image_4;
             this.pbFotoVisita.Name = "pbFotoVisita";
             this.pbFotoVisita.TabStop = false;
+            this.pbFotoVisita.Click += new System.EventHandler(this.pbFotoVisita_Click);
             // 
             // label14
             // 
@@ -350,19 +362,20 @@ namespace ITLA_Visitors.forms
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             // 
-            // txtEdificio
+            // cbxEdificio
             // 
-            resources.ApplyResources(this.txtEdificio, "txtEdificio");
-            this.txtEdificio.FormattingEnabled = true;
-            this.txtEdificio.Name = "txtEdificio";
+            resources.ApplyResources(this.cbxEdificio, "cbxEdificio");
+            this.cbxEdificio.FormattingEnabled = true;
+            this.cbxEdificio.Name = "cbxEdificio";
+            this.cbxEdificio.SelectedValueChanged += new System.EventHandler(this.cbxEdificio_SelectedValueChanged);
             // 
-            // txtAula
+            // cbxAula
             // 
-            this.txtAula.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtAula, "txtAula");
-            this.txtAula.FormatString = "hh:mm:ss tt";
-            this.txtAula.FormattingEnabled = true;
-            this.txtAula.Name = "txtAula";
+            this.cbxAula.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.cbxAula, "cbxAula");
+            this.cbxAula.FormatString = "hh:mm:ss tt";
+            this.cbxAula.FormattingEnabled = true;
+            this.cbxAula.Name = "cbxAula";
             // 
             // txtApellido
             // 
@@ -373,11 +386,11 @@ namespace ITLA_Visitors.forms
             resources.ApplyResources(this.txtApellido, "txtApellido");
             this.txtApellido.Name = "txtApellido";
             // 
-            // txtCarrera
+            // cbxCarrera
             // 
-            resources.ApplyResources(this.txtCarrera, "txtCarrera");
-            this.txtCarrera.FormattingEnabled = true;
-            this.txtCarrera.Name = "txtCarrera";
+            resources.ApplyResources(this.cbxCarrera, "cbxCarrera");
+            this.cbxCarrera.FormattingEnabled = true;
+            this.cbxCarrera.Name = "cbxCarrera";
             // 
             // txtMotivo
             // 
@@ -392,6 +405,7 @@ namespace ITLA_Visitors.forms
             // 
             this.txtCorreo.BackColor = System.Drawing.Color.White;
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCorreo.Culture = new System.Globalization.CultureInfo("es-419");
             resources.ApplyResources(this.txtCorreo, "txtCorreo");
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
@@ -414,7 +428,7 @@ namespace ITLA_Visitors.forms
             // 
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
             this.label20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label20.Image = global::ITLA_Visitors.Properties.Resources.Input_white;
+            this.label20.Image = global::ITLA_Visitors.Properties.Resources.Input21;
             resources.ApplyResources(this.label20, "label20");
             this.label20.Name = "label20";
             // 
@@ -463,17 +477,19 @@ namespace ITLA_Visitors.forms
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(197)))), ((int)(((byte)(94)))));
-            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.btnActualizar);
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Controls.Add(this.panel4);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             // 
-            // button5
+            // btnActualizar
             // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnActualizar, "btnActualizar");
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // panel5
             // 
@@ -484,10 +500,35 @@ namespace ITLA_Visitors.forms
             // 
             // dgvVisitas
             // 
+            this.dgvVisitas.AllowUserToAddRows = false;
+            this.dgvVisitas.AllowUserToDeleteRows = false;
+            this.dgvVisitas.AllowUserToResizeColumns = false;
+            this.dgvVisitas.AllowUserToResizeRows = false;
+            this.dgvVisitas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVisitas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            this.dgvVisitas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVisitas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvVisitas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVisitas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVisitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dgvVisitas, "dgvVisitas");
+            this.dgvVisitas.EnableHeadersVisualStyles = false;
             this.dgvVisitas.Name = "dgvVisitas";
+            this.dgvVisitas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvVisitas.RowHeadersVisible = false;
+            this.dgvVisitas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.dgvVisitas.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvVisitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // panel4
             // 
@@ -523,6 +564,7 @@ namespace ITLA_Visitors.forms
             this.txtBuscarVisita.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.txtBuscarVisita, "txtBuscarVisita");
             this.txtBuscarVisita.Name = "txtBuscarVisita";
+            this.txtBuscarVisita.TextChanged += new System.EventHandler(this.txtBuscarVisita_TextChanged);
             // 
             // button6
             // 
@@ -587,12 +629,70 @@ namespace ITLA_Visitors.forms
             this.btnVisitas.UseVisualStyleBackColor = true;
             this.btnVisitas.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panelUsuario
+            // 
+            this.panelUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(197)))), ((int)(((byte)(94)))));
+            this.panelUsuario.Controls.Add(this.tabControl3);
+            resources.ApplyResources(this.panelUsuario, "panelUsuario");
+            this.panelUsuario.Name = "panelUsuario";
+            // 
+            // panelEdificio
+            // 
+            this.panelEdificio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(197)))), ((int)(((byte)(94)))));
+            this.panelEdificio.Controls.Add(this.tabControl2);
+            resources.ApplyResources(this.panelEdificio, "panelEdificio");
+            this.panelEdificio.Name = "panelEdificio";
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            resources.ApplyResources(this.tabControl2, "tabControl2");
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(197)))), ((int)(((byte)(94)))));
+            this.tabPage3.BackgroundImage = global::ITLA_Visitors.Properties.Resources.REC_2;
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            // 
+            // tabPage4
+            // 
+            resources.ApplyResources(this.tabPage4, "tabPage4");
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            resources.ApplyResources(this.tabControl3, "tabControl3");
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(197)))), ((int)(((byte)(94)))));
+            this.tabPage5.BackgroundImage = global::ITLA_Visitors.Properties.Resources.REC_3;
+            resources.ApplyResources(this.tabPage5, "tabPage5");
+            this.tabPage5.Name = "tabPage5";
+            // 
+            // tabPage6
+            // 
+            resources.ApplyResources(this.tabPage6, "tabPage6");
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // Form_user_admin
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelVisitas);
+            this.Controls.Add(this.panelUsuario);
+            this.Controls.Add(this.panelEdificio);
             this.Controls.Add(this.panelSeleccion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_user_admin";
@@ -612,6 +712,10 @@ namespace ITLA_Visitors.forms
             this.panelSeleccion.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panelUsuario.ResumeLayout(false);
+            this.panelEdificio.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -637,9 +741,9 @@ namespace ITLA_Visitors.forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtSalida;
         private System.Windows.Forms.DateTimePicker dtEntrada;
-        private System.Windows.Forms.ComboBox txtEdificio;
-        private System.Windows.Forms.ComboBox txtAula;
-        private System.Windows.Forms.ComboBox txtCarrera;
+        private System.Windows.Forms.ComboBox cbxEdificio;
+        private System.Windows.Forms.ComboBox cbxAula;
+        private System.Windows.Forms.ComboBox cbxCarrera;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox txtCorreo;
         private System.Windows.Forms.TextBox txtMotivo;
@@ -665,10 +769,8 @@ namespace ITLA_Visitors.forms
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnRemoverImagen;
         private System.Windows.Forms.PictureBox pbFotoVisita;
-        private System.Windows.Forms.Button btnAgregarImagen;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtBuscarVisita;
@@ -677,5 +779,13 @@ namespace ITLA_Visitors.forms
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dgvVisitas;
+        private System.Windows.Forms.Panel panelUsuario;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Panel panelEdificio;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }

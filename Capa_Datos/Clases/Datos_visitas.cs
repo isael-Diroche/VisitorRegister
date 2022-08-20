@@ -17,9 +17,10 @@ namespace Capa_Datos.Clases
 
         public DataTable Insertar_Datos_Visita(Entidad_visitas obj)
         {
-            MySqlDataReader resultado;
+            //MySqlDataReader resultado;
             DataTable Tabla = new DataTable();
             /******** CONECION ********/
+
             MySqlCommand cmd = new MySqlCommand("SP_registrar_visita", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -42,8 +43,8 @@ namespace Capa_Datos.Clases
                 {
                     conexion.Open();
                 }
-                resultado = cmd.ExecuteReader();
-                Tabla.Load(resultado);
+                //resultado = cmd.ExecuteReader();
+                //Tabla.Load(resultado);
             }
             catch(Exception ex)
             {
@@ -73,8 +74,127 @@ namespace Capa_Datos.Clases
                 {
                     conexion.Open();
                 }
-                resultado = cmd.ExecuteReader();
-                Tabla.Load(resultado);
+                //resultado = cmd.ExecuteReader();
+                //Tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
+
+        public DataTable Mostrar_Carrera()
+        {
+            MySqlDataReader resultado;
+            DataTable Tabla = new DataTable();
+            /******** CONECION ********/
+            MySqlCommand cmd = new MySqlCommand("SP_mostrar_carrera", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+                //resultado = cmd.ExecuteReader();
+                //Tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
+
+        public DataTable Mostrar_Edificio()
+        {
+            //MySqlDataReader resultado;
+            DataTable Tabla = new DataTable();
+            /******** CONECION ********/
+            MySqlCommand cmd = new MySqlCommand("SP_mostrar_edificios", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+                //resultado = cmd.ExecuteReader();
+                //Tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
+
+        public DataTable Mostrar_Aula_Edificio(Entidad_edificios obj)
+        {
+            
+            DataTable Tabla = new DataTable();
+            
+            MySqlCommand cmd = new MySqlCommand("SP_aulas_edificio", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idItem", obj.descripcion);
+
+            try
+            {
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+                //resultado = cmd.ExecuteReader();
+                //Tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
+
+        public DataTable Buscar_visita(string Valor)
+        {
+            DataTable Tabla = new DataTable();
+            MySqlCommand cmd = new MySqlCommand("SP_buscar_visitas", conexion);
+
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                //PARAMETERS
+                cmd.Parameters.AddWithValue("Valor", Valor);
             }
             catch (Exception ex)
             {

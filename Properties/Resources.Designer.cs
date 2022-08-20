@@ -93,6 +93,46 @@ namespace ITLA_Visitors.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BUTTON2 {
+            get {
+                object obj = ResourceManager.GetObject("BUTTON2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BUTTON3 {
+            get {
+                object obj = ResourceManager.GetObject("BUTTON3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BUTTON4 {
+            get {
+                object obj = ResourceManager.GetObject("BUTTON4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BUTTON5 {
+            get {
+                object obj = ResourceManager.GetObject("BUTTON5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Component_1 {
             get {
                 object obj = ResourceManager.GetObject("Component_1", resourceCulture);
@@ -183,6 +223,36 @@ namespace ITLA_Visitors.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image_4 {
+            get {
+                object obj = ResourceManager.GetObject("image 4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_41 {
+            get {
+                object obj = ResourceManager.GetObject("image 41", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_42 {
+            get {
+                object obj = ResourceManager.GetObject("image 42", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGE1 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE1", resourceCulture);
@@ -206,6 +276,26 @@ namespace ITLA_Visitors.Properties {
         internal static System.Drawing.Bitmap Input_white {
             get {
                 object obj = ResourceManager.GetObject("Input_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Input2 {
+            get {
+                object obj = ResourceManager.GetObject("Input2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Input21 {
+            get {
+                object obj = ResourceManager.GetObject("Input21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,6 +376,16 @@ namespace ITLA_Visitors.Properties {
         internal static System.Drawing.Bitmap Outline1 {
             get {
                 object obj = ResourceManager.GetObject("Outline1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pic_chart {
+            get {
+                object obj = ResourceManager.GetObject("pic chart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

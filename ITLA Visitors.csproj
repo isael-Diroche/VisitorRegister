@@ -201,5 +201,35 @@
   <ItemGroup>
     <None Include="Resources\Outline1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUTTON2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUTTON3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUTTON4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUTTON5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 42.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\clsImagen.cs" />
+    <Compile Include="Clases\Datos_aulas.cs" />
+    <Compile Include="Clases\Datos_edificios.cs" />
     <Compile Include="Clases\Datos_login.cs" />
+    <Compile Include="Clases\Datos_usuario.cs" />
     <Compile Include="Clases\Datos_visitas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

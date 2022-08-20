@@ -9,7 +9,6 @@ namespace Capa_Entidad.Clases
 {
     public class Entidad_visitas
     {
-
         public int Id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
