@@ -62,7 +62,7 @@ namespace Capa_Datos.Clases
 
         public DataTable Mostrar_Datos_Visita()
         {
-            MySqlDataReader resultado;
+            //MySqlDataReader resultado;
             DataTable Tabla = new DataTable();
             /******** CONECION ********/
             MySqlCommand cmd = new MySqlCommand("SP_mostrar_visitas", conexion);
@@ -93,7 +93,7 @@ namespace Capa_Datos.Clases
 
         public DataTable Mostrar_Carrera()
         {
-            MySqlDataReader resultado;
+            //MySqlDataReader resultado;
             DataTable Tabla = new DataTable();
             /******** CONECION ********/
             MySqlCommand cmd = new MySqlCommand("SP_mostrar_carrera", conexion);

@@ -15,6 +15,8 @@ namespace ITLA_Visitors.forms
     public partial class Form_user_admin : Form
     {
         private Negocio_visitas tblUsuario = new Negocio_visitas();
+        private Negocio_edificio tblEdificio = new Negocio_edificio();
+        private Negocio_aula tblAula = new Negocio_aula();
 
         public Form_user_admin()
         {
@@ -66,6 +68,10 @@ namespace ITLA_Visitors.forms
             cbxEdificio.DisplayMember = "descripcion";
             cbxEdificio.ValueMember = "descripcion";
 
+            cbxEdificioAula.DataSource = tEdificio;
+            cbxEdificioAula.DisplayMember = "descripcion";
+            cbxEdificioAula.ValueMember = "descripcion";
+
 
             this.FillGridView();
             
@@ -78,6 +84,8 @@ namespace ITLA_Visitors.forms
             else if (Form_main.user_tipo_usuario == "general")
             {
                 //botones para hacer posible acceder con Enabled o no
+                this.btnEdificios.Visible = false;
+                this.btnUsuarios.Visible = false;
                 MessageBox.Show("Eres general");
             }
 
@@ -88,6 +96,8 @@ namespace ITLA_Visitors.forms
         private void FillGridView()
         {
             dgvVisitas.DataSource = tblUsuario.Mostrar_Visitas();
+            dgvDatosEdificio.DataSource = tblEdificio.Mostrar_Edificio();
+            dgvDatosAula.DataSource = tblAula.Mostrar_Aula();
 
             DataGridViewImageColumn colum = (DataGridViewImageColumn)dgvVisitas.Columns[9];
             colum.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -214,10 +224,93 @@ namespace ITLA_Visitors.forms
             String Valor = txtBuscarVisita.Text;
 
             dgvVisitas.DataSource = tblUsuario.Buscar_visita(Valor);
-            
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.FillGridView();
+        }
+
+        private void btnEdificios_Click(object sender, EventArgs e)
+        {
+            this.panelEdificio.BringToFront();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            this.panelUsuario.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Entidad_edificios objeuser = new Entidad_edificios();
+                Negocio_edificio objnuser = new Negocio_edificio();
+
+                String texto = txtNuevoEdificio.Text;
+
+                objeuser.descripcion = texto;
+
+                objnuser.Insertar_Edificio(objeuser);
+
+                MessageBox.Show("Se insertaron los registros del Edificio", "Se inserto Correctamente!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ocurrio un error insertando");
+            }
+        }
+
+        private void btnAgregarAula_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Entidad_aulas objeuser = new Entidad_aulas();
+                Negocio_aula objnuser = new Negocio_aula();              
+
+                objeuser.descripcion = txtNuevaAula.Text;
+                objeuser.edificio = cbxEdificioAula.Text;
+
+                objnuser.Insertar_Aula(objeuser);
+
+                MessageBox.Show("Se insertaron los registros de la Aula", "Se inserto Correctamente!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ocurrio un error insertando");
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.panelSeleccion.BringToFront();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.panelSeleccion.BringToFront();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.panelSeleccion.BringToFront();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form_main login = new Form_main();
+            this.Hide();
+
+            //Application.Run(new Form_main());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            //Application.Run(new Form_main());
+        }
 
         //lblfecha.Text = DateTime.Now.ToString("dd-MM-yyyy");
         //lblhora.Text = DateTime.Now.ToString("hh:mm:ss tt");

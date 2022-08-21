@@ -37,10 +37,82 @@ namespace Capa_Datos.Clases
             return Tabla;
         }
 
-        //public DataTable Insertar_Aula() { }
+        public DataTable Insertar_Aula(Entidad_aulas obj)
+        {
+            DataTable Tabla = new DataTable();
+            MySqlCommand cmd = new MySqlCommand("SP_insertar_aula", conexion);
 
-        //public DataTable Actualizar_Aula() { }
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                //PARAMETERS
+                cmd.Parameters.AddWithValue("D_descripcion", obj.descripcion);
+                cmd.Parameters.AddWithValue("D_edificio", obj.edificio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
 
-        //public DataTable Eliminar_Aula() { }
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
+
+        public DataTable Actualizar_Aula(Entidad_aulas obj)
+        {
+            DataTable Tabla = new DataTable();
+            MySqlCommand cmd = new MySqlCommand("SP_actualizar_aula", conexion);
+
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                //PARAMETERS
+                cmd.Parameters.AddWithValue("IdItem", obj.Id);
+                cmd.Parameters.AddWithValue("D_descripcion", obj.descripcion);
+                cmd.Parameters.AddWithValue("D_edificio", obj.edificio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
+
+        public DataTable Eliminar_Aula(int id)
+        {
+            DataTable Tabla = new DataTable();
+            MySqlCommand cmd = new MySqlCommand("SP_eliminar_aula", conexion);
+
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                //PARAMETERS
+                cmd.Parameters.AddWithValue("IdItem", id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) { conexion.Close(); }
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(Tabla);
+            return Tabla;
+        }
     }
 }
